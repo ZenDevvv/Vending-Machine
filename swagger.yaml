@@ -1,0 +1,98 @@
+swagger: "2.0"
+info:
+  title: "Change Calculation API"
+  version: "1.0.0"
+  description: "API for calculating change based on bill and amount owed."
+paths:
+  /calculate-change:
+    post:
+      summary: "Calculate change"
+      description: "Calculates the change to be returned based on the bill and amount owed."
+      parameters:
+        - name: "body"
+          in: "body"
+          required: true
+          schema:
+            type: object
+            properties:
+              bill:
+                type: number
+                example: 1000
+                description: "The total bill amount."
+              owed:
+                type: number
+                example: 1
+                description: "The amount paid."
+      responses:
+        200:
+          description: "Successful response with change data."
+          schema:
+            type: object
+            properties:
+              status:
+                type: string
+                example: "success"
+              message:
+                type: string
+                example: "API executed successfully"
+              data:
+                type: object
+                properties:
+                  change:
+                    type: object
+                    properties:
+                      "1":
+                        type: integer
+                        example: 4
+                      "5":
+                        type: integer
+                        example: 1
+                      "10":
+                        type: integer
+                        example: 0
+                      "20":
+                        type: integer
+                        example: 2
+                      "50":
+                        type: integer
+                        example: 1
+                      "100":
+                        type: integer
+                        example: 4
+                      "500":
+                        type: integer
+                        example: 1
+                      "1000":
+                        type: integer
+                        example: 0
+        400:
+          description: "Bad request due to validation errors."
+          schema:
+            type: object
+            properties:
+              status:
+                type: string
+                example: "error"
+              message:
+                type: string
+                enum:
+                  - "Bill and Owed must be numbers that are greater than 0"
+                  - "Bill and Owed must have a value greater than 0"
+                  - "Bill must be greater than or equal to owed"
+              data:
+                type: object
+                properties: {}
+        500:
+          description: "Internal server error."
+          schema:
+            type: object
+            properties:
+              status:
+                type: string
+                example: "error"
+              message:
+                type: string
+                example: "An unexpected error occurred."
+              data:
+                type: object
+                properties: {}
