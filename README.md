@@ -2,7 +2,7 @@
 
 ## Overview
 
-The Vending Machine APIy is designed to calculate the change to be returned based on a given bill amount and the amount paid by the customer. This API is useful for applications that need to handle cash transactions and provide accurate change calculations.
+The Vending Machine API is designed to calculate the change to be returned based on a given bill amount and the amount paid by the customer. This API is useful for applications that need to handle cash transactions and provide accurate change calculations.
 
 ## Setup Instructions
 
