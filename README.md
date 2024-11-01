@@ -28,7 +28,7 @@ The Change Calculation API is designed to calculate the change to be returned ba
    ```
 
 4. **Test the API using JEST**:
-   Test API using JEST / supertest. The test file is located in the test folder from the root. Run the following:
+   The test file is located in the test folder from the root. Run the following:
 
     ```bash
     npm test
